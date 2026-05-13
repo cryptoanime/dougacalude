@@ -1,17 +1,41 @@
-# 講義動画生成アプリ
+# 講義動画生成ツール
 
-Streamlit Community Cloud で公開する場合の設定:
+Windows PCで起動し、PDFと講義用解説から講義動画を生成するStreamlitアプリです。
 
-- Repository: `cryptoanime/dougacalude`
-- Branch: `master`
-- Main file path: `app.py`
-- Python dependencies: `requirements.txt`
-- System packages: `packages.txt`
+## 購入者向けの使い方
 
-Secrets に以下を設定してください。
+1. ZIPを解凍します。
+2. `1_初回セットアップ.bat` を一度だけ実行します。
+3. `2_起動.bat` を実行します。
+4. ブラウザで `http://localhost:8501` を開きます。
+5. PDFをアップロードし、講義用解説を貼り付けて動画生成を開始します。
 
-```toml
-APP_PASSWORD = "note購入者に案内する合言葉"
+スマホ内のPDFを使う場合は、PCとスマホを同じWi-Fiにつなぎ、`2_起動.bat` に表示されるスマホ用URLを開きます。
+
+## 講義用解説の自動割り振り
+
+以下の形式に対応しています。
+
+```text
+スライド2：ACL再建術後リハビリの全体像
+
+箇条書き：
+ACL再建術後は段階的リハビリが重要
+
+講義用解説：
+ここにスライド2で読み上げる文章を書きます。
+
+スライド3：術後早期の管理と可動域訓練
+
+講義用解説：
+ここにスライド3で読み上げる文章を書きます。
 ```
 
-note/Brain購入者には、Streamlit Cloudで発行されたURLと合言葉を案内します。
+`講義用解説：` の下にある文章だけを、対応するスライド番号の原稿欄へ反映します。
+
+## 注意
+
+- Windows PC用です。
+- スマホだけでは動画生成できません。
+- 動画生成中はPCをスリープさせないでください。
+- 無料配布・note特典では、URL公開型ではなくZIP配布型を推奨します。

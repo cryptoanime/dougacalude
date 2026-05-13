@@ -41,6 +41,7 @@ MOBILE_UPLOAD_DIR = os.path.join(tempfile.gettempdir(), "lecture_mobile_uploads"
 JOBS_DIR = os.path.join(tempfile.gettempdir(), "lecture_video_jobs")
 DEFAULT_APP_PASSWORD = "note2026"
 LOCAL_MOBILE_UPLOAD_ENABLED = os.name == "nt" and os.environ.get("ENABLE_MOBILE_UPLOAD", "1") == "1"
+LOGIN_REQUIRED = os.environ.get("REQUIRE_LOGIN", "0") == "1"
 
 TTS_COMPONENT = """
 <div style=\"font-family: Segoe UI, sans-serif; background:#f5f7fb; padding:16px; border-radius:12px; border:1px solid #dce2ec;\">
@@ -629,14 +630,14 @@ def extract_scripts_from_pdf(pdf_path: str, num_pages: int):
 
 # -------------- UI --------------
 st.set_page_config(page_title=PAGE_TITLE, page_icon="🎬", layout="wide")
-if not require_login():
+if LOGIN_REQUIRED and not require_login():
     st.stop()
 
 st.title(PAGE_TITLE)
 st.caption("PDFから動画作成とテキスト読み上げを一つの画面で実行できます。")
 
 with st.sidebar:
-    if st.button("ログアウト"):
+    if LOGIN_REQUIRED and st.button("ログアウト"):
         st.session_state.authenticated = False
         st.rerun()
 
