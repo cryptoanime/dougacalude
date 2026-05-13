@@ -1,6 +1,6 @@
 streamlit
 gTTS
 pdf2image
-moviepy
+moviepy==1.0.3
 pypdf
 pillow
