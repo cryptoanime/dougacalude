@@ -1,0 +1,10 @@
+If START_HERE.bat does not open, do this:
+
+1. Open this folder.
+2. Click the address bar at the top of File Explorer.
+3. Type powershell and press Enter.
+4. Copy and paste this command:
+
+powershell -ExecutionPolicy Bypass -File .\START_HERE.ps1
+
+5. Press Enter.
