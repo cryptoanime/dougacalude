@@ -2,3 +2,5 @@ streamlit
 gTTS
 pdf2image
 moviepy
+pypdf
+pillow

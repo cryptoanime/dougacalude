@@ -17,3 +17,7 @@ __pycache__/
 *.7z
 *.tmp
 *.log
+nul
+video
+起動*.bat
+起動*.html
