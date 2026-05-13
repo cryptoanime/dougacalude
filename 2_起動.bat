@@ -32,5 +32,6 @@ echo http://%LAN_IP%:8502
 echo.
 
 start "" /min python mobile_upload_server.py
+start "" cmd /c "timeout /t 5 >nul && start http://localhost:8501"
 streamlit run app.py --server.address 0.0.0.0 --server.port 8501
 pause
